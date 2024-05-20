@@ -10,13 +10,15 @@ import {
 
 const App = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <StatusBar />
-      <ScrollView styles={styles.container}>
-        <View>
-          <Text styles={styles.text}>React Native App</Text>
-        </View>
-      </ScrollView>
+      <View style={styles.container}>
+        <ScrollView contentContainerStyle={styles.container}>
+          <View style={styles.container}>
+            <Text style={styles.text}>React Native App</Text>
+          </View>
+        </ScrollView>
+      </View>
     </SafeAreaView>
   );
 };
@@ -24,12 +26,12 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignContent: 'center',
+    alignItems: 'center',
     justifyContent: 'center',
   },
   text: {
     fontSize: 20,
-    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
 
