@@ -3,6 +3,15 @@ import {View, Text, Button, StyleSheet} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {bookSeat, bookTable, resetState} from '../store/mySlice';
 
+//import { createSelector } from 'reselect';
+
+// const selectBookedSeats = createSelector(
+//     state => state.booking.bookedSeats,
+//     bookedSeats => bookedSeats
+//   );
+
+//  const handleBookSeat = useCallback(() => dispatch(bookSeat()), [dispatch]);
+
 const BookingScreen = () => {
   const dispatch = useDispatch();
   const bookedSeats = useSelector(state => state.booking.bookedSeats);
@@ -10,6 +19,14 @@ const BookingScreen = () => {
   const nextAvailableSeat = useSelector(
     state => state.booking.nextAvailableSeat,
   );
+
+  const handleBookSeat = () => {
+    dispatch(bookSeat({type: 'increment'}));
+  };
+
+  const handleBookTable = () => {
+    dispatch(bookTable({type: 'increment'}));
+  };
 
   return (
     <View style={styles.container}>
@@ -21,13 +38,10 @@ const BookingScreen = () => {
       </Text>
       <Text style={styles.text}>Next Available Seat: {nextAvailableSeat}</Text>
       <View style={styles.marginY}>
-        <Button title="Book a Seat" onPress={() => dispatch(bookSeat())} />
+        <Button title="Book a Seat" onPress={handleBookSeat} />
       </View>
       <View style={styles.marginY}>
-        <Button
-          title="Book a Table (2 Seats)"
-          onPress={() => dispatch(bookTable())}
-        />
+        <Button title="Book a Table (2 Seats)" onPress={handleBookTable} />
       </View>
       <View style={styles.marginY}>
         <Button title="Reset" onPress={() => dispatch(resetState())} />
