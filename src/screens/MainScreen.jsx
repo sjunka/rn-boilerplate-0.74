@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, Button, StyleSheet} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
-import {bookSeat, bookTable} from '../store/mySlice';
+import {bookSeat, bookTable, resetState} from '../store/mySlice';
 
 const BookingScreen = () => {
   const dispatch = useDispatch();
@@ -20,11 +20,18 @@ const BookingScreen = () => {
         Free Seats: {totalSeats - bookedSeats.length}
       </Text>
       <Text style={styles.text}>Next Available Seat: {nextAvailableSeat}</Text>
-      <Button title="Book a Seat" onPress={() => dispatch(bookSeat())} />
-      <Button
-        title="Book a Table (2 Seats)"
-        onPress={() => dispatch(bookTable())}
-      />
+      <View style={styles.marginY}>
+        <Button title="Book a Seat" onPress={() => dispatch(bookSeat())} />
+      </View>
+      <View style={styles.marginY}>
+        <Button
+          title="Book a Table (2 Seats)"
+          onPress={() => dispatch(bookTable())}
+        />
+      </View>
+      <View style={styles.marginY}>
+        <Button title="Reset" onPress={() => dispatch(resetState())} />
+      </View>
     </View>
   );
 };
@@ -43,6 +50,9 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 18,
     marginVertical: 8,
+  },
+  marginY: {
+    marginVertical: 10,
   },
 });
 

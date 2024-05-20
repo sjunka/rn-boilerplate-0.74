@@ -25,8 +25,15 @@ const mySlice = createSlice({
         state.nextAvailableSeat += 2;
       }
     },
+    resetState: (state, action) => {
+      return {
+        bookedSeats: [],
+        totalSeats: 0,
+        nextAvailableSeat: 0,
+      };
+    },
   },
 });
 
-export const {bookSeat, bookTable} = mySlice.actions;
+export const {bookSeat, bookTable, resetState} = mySlice.actions;
 export default mySlice.reducer;
