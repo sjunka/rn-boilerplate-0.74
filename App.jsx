@@ -7,14 +7,21 @@ import {
   Platform,
 } from 'react-native';
 
+import {Provider} from 'react-redux';
+import store from './src/store';
+import MainScreen from './src/screens/MainScreen';
+
 const App = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar
-        barStyle={Platform.OS === 'ios' ? 'dark-content' : 'light-content'}
-      />
-      <Text style={styles.text}>React Native App</Text>
-    </SafeAreaView>
+    <Provider store={store}>
+      <SafeAreaView style={styles.container}>
+        <StatusBar
+          barStyle={Platform.OS === 'ios' ? 'dark-content' : 'light-content'}
+        />
+        {/* <Text style={styles.text}>React Native App</Text> */}
+        <MainScreen />
+      </SafeAreaView>
+    </Provider>
   );
 };
 

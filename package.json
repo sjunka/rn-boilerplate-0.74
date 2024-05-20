@@ -1,5 +1,5 @@
 {
-  "name": "boilerplateTemplate",
+  "name": "@boilerplate/template",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -35,5 +35,8 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "resolutions": {
+    "immer": "9.0.12"
   }
 }
