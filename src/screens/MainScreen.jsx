@@ -20,13 +20,13 @@ const BookingScreen = () => {
     state => state.booking.nextAvailableSeat,
   );
 
-  const handleBookSeat = () => {
-    dispatch(bookSeat({type: 'increment'}));
-  };
+  // const handleBookSeat = () => {
+  //   dispatch(bookSeat({type: 'increment'}));
+  // };
 
-  const handleBookTable = () => {
-    dispatch(bookTable({type: 'increment'}));
-  };
+  // const handleBookTable = () => {
+  //   dispatch(bookTable({type: 'increment'}));
+  // };
 
   return (
     <View style={styles.container}>
@@ -38,10 +38,15 @@ const BookingScreen = () => {
       </Text>
       <Text style={styles.text}>Next Available Seat: {nextAvailableSeat}</Text>
       <View style={styles.marginY}>
-        <Button title="Book a Seat" onPress={handleBookSeat} />
+        {/* <Button title="Book a Seat" onPress={handleBookSeat} /> */}
+        <Button title="Book a Seat" onPress={() => dispatch(bookSeat())} />
       </View>
       <View style={styles.marginY}>
-        <Button title="Book a Table (2 Seats)" onPress={handleBookTable} />
+        {/* <Button title="Book a Table (2 Seats)" onPress={handleBookTable} /> */}
+        <Button
+          title="Book a Table (2 Seats)"
+          onPress={() => dispatch(bookTable())}
+        />
       </View>
       <View style={styles.marginY}>
         <Button title="Reset" onPress={() => dispatch(resetState())} />
