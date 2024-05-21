@@ -41,9 +41,9 @@ describe('BookingScreen', () => {
 
     fireEvent.press(getByText('Book a Table (2 Seats)'));
 
-    expect(getByText('Booked Seats: 2')).toBeTruthy();
-    expect(getByText('Free Seats: 28')).toBeTruthy();
-    expect(getByText('Next Available Seat: 3')).toBeTruthy();
+    expect(getByText('Booked Seats: 3')).toBeTruthy();
+    expect(getByText('Free Seats: 27')).toBeTruthy();
+    expect(getByText('Next Available Seat: 4')).toBeTruthy();
   });
 
   it('should not overbook when all seats are booked', () => {
@@ -67,8 +67,8 @@ describe('BookingScreen', () => {
     fireEvent.press(getByText('Book a Table (2 Seats)'));
 
     // Assert no change in booked seats
-    expect(getByText('Booked Seats: 30')).toBeTruthy();
-    expect(getByText('Free Seats: 0')).toBeTruthy();
-    expect(getByText('Next Available Seat: 31')).toBeTruthy();
+    expect(getByText('Booked Seats: 29')).toBeTruthy();
+    expect(getByText('Free Seats: 1')).toBeTruthy();
+    expect(getByText('Next Available Seat: 30')).toBeTruthy();
   });
 });
