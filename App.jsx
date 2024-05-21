@@ -15,9 +15,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <SafeAreaView style={styles.container}>
-        <StatusBar
-          barStyle={Platform.OS === 'ios' ? 'dark-content' : 'light-content'}
-        />
+        <StatusBar />
         {/* <Text style={styles.text}>React Native App</Text> */}
         <MainScreen />
       </SafeAreaView>
