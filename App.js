@@ -7,19 +7,20 @@ import {
   Platform,
 } from 'react-native';
 
-import {Provider} from 'react-redux';
-import store from './src/store';
-import MainScreen from './src/screens/MainScreen';
+// import {Provider} from 'react-redux';
+// import store from './src/store';
+import InitialScreen from './src/screens/InitialScreen';
 
 const App = () => {
   return (
-    <Provider store={store}>
-      <SafeAreaView style={styles.container}>
-        <StatusBar />
-        {/* <Text style={styles.text}>React Native App</Text> */}
-        <MainScreen />
-      </SafeAreaView>
-    </Provider>
+    // <Provider store={store}>
+    <SafeAreaView style={styles.container}>
+      <StatusBar />
+      {/* <Text style={styles.text}>React Native App</Text> */}
+      {/* <MainScreen /> */}
+      <InitialScreen />
+    </SafeAreaView>
+    // </Provider>
   );
 };
 
@@ -29,10 +30,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#fff',
-  },
-  text: {
-    fontSize: 20,
-    textAlign: 'center',
   },
 });
 
